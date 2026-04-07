@@ -4,7 +4,7 @@ A professional web dashboard for IT managers monitoring external contractors —
 
 ## Live Demo
 
-👉 **[View on GitHub Pages](https://MuneerAhmad7/it-manager-dashboard)**
+👉 **[View on GitHub Pages](https://muneerahmad7.github.io/it-manager-dashboard/)**
 
 ---
 
