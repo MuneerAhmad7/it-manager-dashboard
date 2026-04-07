@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Manager Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">
+      <span class="logo-icon">◈</span>
+      <span>IT Command Center</span>
+    </div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-tab="people">The 3 People</button>
+      <button class="nav-tab" data-tab="collect">What to Collect</button>
+      <button class="nav-tab" data-tab="reports">Report Templates</button>
+      <button class="nav-tab" data-tab="routine">Daily Routine</button>
+      <button class="nav-tab" data-tab="probation">Probation Tips</button>
+    </div>
+    <div class="menu-btn" id="menuBtn">☰</div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <button class="nav-tab active" data-tab="people">The 3 People</button>
+  <button class="nav-tab" data-tab="collect">What to Collect</button>
+  <button class="nav-tab" data-tab="reports">Report Templates</button>
+  <button class="nav-tab" data-tab="routine">Daily Routine</button>
+  <button class="nav-tab" data-tab="probation">Probation Tips</button>
+</div>
+
+<main class="main">
+
+  <!-- ─── TAB: THE 3 PEOPLE ─── -->
+  <section id="tab-people" class="tab-section active">
+    <div class="hero-line">
+      <span class="tag">Your team</span>
+      <h1>Know each person's role clearly <em>first</em></h1>
+      <p class="hero-sub">Before monitoring anyone, define what success looks like. Then you know what to measure.</p>
+    </div>
+
+    <div class="role-grid">
+
+      <div class="role-card card-blue">
+        <div class="role-header">
+          <span class="role-abbr">NE</span>
+          <div>
+            <div class="role-name">Networking Engineer</div>
+            <div class="role-type">External contractor</div>
+          </div>
+        </div>
+        <p class="role-desc">Responsible for physical + logical network build — cabling, switches, VLANs, firewalls.</p>
+        <ul class="role-list">
+          <li>What tasks were completed today?</li>
+          <li>Equipment installed, tested, signed off?</li>
+          <li>Issues found — and how resolved?</li>
+          <li>Plan for tomorrow?</li>
+          <li>Any scope creep from agreed plan?</li>
+          <li>Safety rules followed on site?</li>
+        </ul>
+        <div class="role-method">
+          <span class="method-icon">👁</span>
+          Observe on-site · Request daily task sheet by 5 PM
+        </div>
+      </div>
+
+      <div class="role-card card-green">
+        <div class="role-header">
+          <span class="role-abbr">SM</span>
+          <div>
+            <div class="role-name">Sales Manager</div>
+            <div class="role-type">External contractor</div>
+          </div>
+        </div>
+        <p class="role-desc">Responsible for client acquisition, deal pipeline, proposals, and revenue generation.</p>
+        <ul class="role-list">
+          <li>How many calls or meetings today?</li>
+          <li>New leads added to pipeline?</li>
+          <li>Proposals sent — client name, value?</li>
+          <li>Follow-ups on existing leads?</li>
+          <li>Deals closed or lost today?</li>
+          <li>Current total pipeline value?</li>
+        </ul>
+        <div class="role-method">
+          <span class="method-icon">📋</span>
+          Request call log + CRM screenshot + meeting notes
+        </div>
+      </div>
+
+      <div class="role-card card-amber">
+        <div class="role-header">
+          <span class="role-abbr">IT</span>
+          <div>
+            <div class="role-name">You — IT Manager</div>
+            <div class="role-type">Internal · observer + reporter</div>
+          </div>
+        </div>
+        <p class="role-desc">Your job = give the CEO full visibility. You are their eyes and ears on the ground.</p>
+        <ul class="role-list">
+          <li>Document every step both people do</li>
+          <li>Take photos of all physical work</li>
+          <li>Screenshot all configurations</li>
+          <li>Cross-check against agreed scope</li>
+          <li>Note risks, delays, quality issues</li>
+          <li>Compile daily + weekly + monthly reports</li>
+        </ul>
+        <div class="role-method">
+          <span class="method-icon">📊</span>
+          Your output = CEO confidence in the project
+        </div>
+      </div>
+
+    </div>
+
+    <div class="insight-bar">
+      <span class="insight-icon">◈</span>
+      <strong>Key insight:</strong> Your real job is not just IT management — it is making the CEO feel they can see everything without being on site. Every report is proof of that.
+    </div>
+  </section>
+
+  <!-- ─── TAB: WHAT TO COLLECT ─── -->
+  <section id="tab-collect" class="tab-section">
+    <div class="hero-line">
+      <span class="tag">Data collection</span>
+      <h1>What to collect — every single day</h1>
+      <p class="hero-sub">Both external people must send their update to you by 5 PM. No exceptions.</p>
+    </div>
+
+    <div class="collect-grid">
+      <div class="collect-block">
+        <div class="collect-header ch-blue">
+          <span class="ch-abbr">NE</span>
+          <span>From the Networking Engineer</span>
+        </div>
+        <ul class="collect-list">
+          <li><span class="ci ci-blue">01</span><div><strong>Written task list</strong><br>Planned vs actually done — every item</div></li>
+          <li><span class="ci ci-blue">02</span><div><strong>Photo evidence</strong><br>Cables, switches, racks, cameras installed</div></li>
+          <li><span class="ci ci-blue">03</span><div><strong>Config screenshots</strong><br>Switch CLI, Cisco GUI, firewall rules</div></li>
+          <li><span class="ci ci-blue">04</span><div><strong>Cable labelling sheet</strong><br>Which port connects to which room/device</div></li>
+          <li><span class="ci ci-blue">05</span><div><strong>Faults found</strong><br>Description + how each was fixed</div></li>
+          <li><span class="ci ci-blue">06</span><div><strong>Materials used</strong><br>Cable lengths, connectors, quantities</div></li>
+          <li><span class="ci ci-blue">07</span><div><strong>Hours on site</strong><br>Arrival time and departure time</div></li>
+          <li><span class="ci ci-blue">08</span><div><strong>Tomorrow's plan</strong><br>What is scheduled for next morning</div></li>
+        </ul>
+      </div>
+
+      <div class="collect-block">
+        <div class="collect-header ch-green">
+          <span class="ch-abbr">SM</span>
+          <span>From the Sales Manager</span>
+        </div>
+        <ul class="collect-list">
+          <li><span class="ci ci-green">01</span><div><strong>Calls made</strong><br>Count + who was contacted today</div></li>
+          <li><span class="ci ci-green">02</span><div><strong>Meetings held</strong><br>Number + which companies attended</div></li>
+          <li><span class="ci ci-green">03</span><div><strong>Proposals sent</strong><br>Client name, value, product/service</div></li>
+          <li><span class="ci ci-green">04</span><div><strong>Follow-up status</strong><br>All open leads — current stage</div></li>
+          <li><span class="ci ci-green">05</span><div><strong>Deals won or lost</strong><br>Reason for loss if applicable</div></li>
+          <li><span class="ci ci-green">06</span><div><strong>Updated pipeline</strong><br>All open deals with values + stages</div></li>
+          <li><span class="ci ci-green">07</span><div><strong>CRM screenshots</strong><br>HubSpot, Zoho, or whichever tool used</div></li>
+          <li><span class="ci ci-green">08</span><div><strong>Client feedback</strong><br>Any complaints or positive responses</div></li>
+        </ul>
+      </div>
+
+      <div class="collect-block collect-you">
+        <div class="collect-header ch-amber">
+          <span class="ch-abbr">IT</span>
+          <span>What YOU observe + add yourself</span>
+        </div>
+        <ul class="collect-list">
+          <li><span class="ci ci-amber">◈</span><div><strong>Your own observation notes</strong><br>What you physically saw on site today</div></li>
+          <li><span class="ci ci-amber">◈</span><div><strong>Quality check</strong><br>Does the work match project drawing/scope?</div></li>
+          <li><span class="ci ci-amber">◈</span><div><strong>Attendance log</strong><br>Exact arrival and departure for each person</div></li>
+          <li><span class="ci ci-amber">◈</span><div><strong>Team issues</strong><br>Any disagreement or concern between members</div></li>
+          <li><span class="ci ci-amber">◈</span><div><strong>Timeline risks</strong><br>Anything that could delay the project</div></li>
+          <li><span class="ci ci-amber">◈</span><div><strong>Your recommendation</strong><br>One clear suggestion for what to do next</div></li>
+        </ul>
+        <div class="you-note">This section is what makes YOUR report valuable. Anyone can collect data. Your own eyes and judgment cannot be replaced.</div>
+      </div>
+    </div>
+
+    <div class="tools-row">
+      <div class="tool-item">
+        <span class="tool-icon">💬</span>
+        <strong>WhatsApp Group</strong>
+        <span>Quick daily updates from both people</span>
+      </div>
+      <div class="tool-item">
+        <span class="tool-icon">📊</span>
+        <strong>Google Sheets</strong>
+        <span>Track tasks and pipeline in one place</span>
+      </div>
+      <div class="tool-item">
+        <span class="tool-icon">📁</span>
+        <strong>Google Drive</strong>
+        <span>Store all photos, screenshots, reports</span>
+      </div>
+      <div class="tool-item">
+        <span class="tool-icon">📝</span>
+        <strong>Google Forms</strong>
+        <span>Daily form each person fills in</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TAB: REPORT TEMPLATES ─── -->
+  <section id="tab-reports" class="tab-section">
+    <div class="hero-line">
+      <span class="tag">Templates</span>
+      <h1>Three reports — daily, weekly, monthly</h1>
+      <p class="hero-sub">Consistency in format builds CEO trust. Use the same structure every time.</p>
+    </div>
+
+    <div class="report-switcher">
+      <button class="rsw active" data-report="daily">Daily</button>
+      <button class="rsw" data-report="weekly">Weekly</button>
+      <button class="rsw" data-report="monthly">Monthly</button>
+    </div>
+
+    <div id="report-daily" class="report-panel active">
+      <div class="report-meta">
+        <span class="report-freq">Every working day · Send by 6 PM</span>
+        <button class="copy-btn" onclick="copyReport('daily')">Copy template</button>
+      </div>
+      <pre class="report-code" id="text-daily">DAILY PROGRESS REPORT
+Date: [DD/MM/YYYY]
+Prepared by: [Your Name] – IT Manager
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+NETWORKING ENGINEER
+───────────────────
+Planned tasks:    [list from morning kickoff]
+Completed tasks:  [what was actually done]
+Issues found:     [problems + how resolved]
+Tomorrow's plan:  [next steps]
+Attendance:       Arrived [time] | Left [time]
+
+SALES MANAGER
+─────────────
+Calls made:       [number] — Key contacts: [names]
+Meetings held:    [number] — Companies: [names]
+Proposals sent:   [number] — Total value: SAR [amount]
+Deals closed:     [Yes/No — details if yes]
+Pipeline value:   SAR [total open deals]
+
+IT MANAGER OBSERVATIONS
+───────────────────────
+Site visit:       [what I saw on site today]
+Quality check:    [Pass / Flag — details]
+Risks noted:      [any concern or delay risk]
+Recommendation:   [my one suggestion for tomorrow]
+
+Overall status:   [ On Track ]  [ At Risk ]  [ Delayed ]</pre>
+    </div>
+
+    <div id="report-weekly" class="report-panel">
+      <div class="report-meta">
+        <span class="report-freq">Every Sunday · Send before work starts</span>
+        <button class="copy-btn" onclick="copyReport('weekly')">Copy template</button>
+      </div>
+      <pre class="report-code" id="text-weekly">WEEKLY PROGRESS REPORT — Week [#]
+Period: [date] to [date]
+Prepared by: [Your Name]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SUMMARY
+[2 sentences — what was achieved this week overall]
+
+NETWORKING ENGINEER — Week Summary
+───────────────────────────────────
+Tasks completed:       [full list]
+Tasks pending:         [list + reason for each delay]
+Project % complete:    [e.g. 40%]
+Milestone reached:     [e.g. all cabling done in Block A]
+Issues & resolutions:  [summary of problems this week]
+
+SALES MANAGER — Week Summary
+────────────────────────────
+Total calls:           [number]
+Total meetings:        [number]
+Proposals sent:        [number] — Total value: SAR [amount]
+Deals won:             [number] — Value: SAR [amount]
+Deals lost:            [number] — Reason: [summary]
+Pipeline value:        SAR [total]
+Top 3 leads to watch:  [client names]
+
+IT MANAGER ASSESSMENT
+─────────────────────
+Project health:        [ Green ]  [ Amber ]  [ Red ]
+Team performance:      [honest 2-line assessment]
+Key risk this week:    [main concern]
+CEO action needed:     [what the CEO should know or decide]
+
+NEXT WEEK PLAN
+[Brief plan for both team members next week]</pre>
+    </div>
+
+    <div id="report-monthly" class="report-panel">
+      <div class="report-meta">
+        <span class="report-freq">1st of each month · Present in person if possible</span>
+        <button class="copy-btn" onclick="copyReport('monthly')">Copy template</button>
+      </div>
+      <pre class="report-code" id="text-monthly">MONTHLY EXECUTIVE REPORT — [Month Year]
+Prepared by: [Your Name] – IT Manager
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. EXECUTIVE SUMMARY
+[3–4 sentences: what was built, what was sold, key wins]
+
+2. NETWORKING — Monthly Achievements
+─────────────────────────────────────
+Infrastructure live:   [systems now operational]
+Pending items:         [what remains + ETA]
+Quality issues:        [count + severity level]
+Equipment spend:       SAR [amount used this month]
+
+3. SALES — Monthly Performance
+───────────────────────────────
+Revenue generated:     SAR [total]
+Proposals sent:        [count] — Value: SAR [total]
+Conversion rate:       [won ÷ sent = X%]
+New clients acquired:  [count]
+Pipeline next month:   SAR [value entering next period]
+
+4. RISKS & ISSUES LOG
+─────────────────────
+[List unresolved risks with owner name and due date]
+Risk 1: [description] — Owner: [name] — Due: [date]
+Risk 2: [description] — Owner: [name] — Due: [date]
+
+5. IT MANAGER RECOMMENDATIONS
+──────────────────────────────
+1. [Your first recommendation for next month]
+2. [Your second recommendation]
+3. [Your third recommendation]
+
+6. PHOTO EVIDENCE SUMMARY
+──────────────────────────
+[Attach 5–10 best progress photos from the month]
+[Include before/after comparisons where possible]</pre>
+    </div>
+  </section>
+
+  <!-- ─── TAB: DAILY ROUTINE ─── -->
+  <section id="tab-routine" class="tab-section">
+    <div class="hero-line">
+      <span class="tag">Daily routine</span>
+      <h1>Own every hour of your working day</h1>
+      <p class="hero-sub">This schedule is your system. Follow it consistently and the CEO will trust you completely.</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">8:00 AM</div>
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-title">Morning kickoff — 15 minutes</div>
+          <p>Brief both external people. Ask each person: <em>"What is your plan for today?"</em> Write it down immediately — this becomes the Planned column in tonight's report. Set a clear expectation: send me your update by 5 PM.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">9:00 AM</div>
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-title">On-site with the networking engineer</div>
+          <p>Watch every step. Take photos. Note what tools they use, what config they apply, what cable goes where. Ask questions — <em>"Why did you do it this way?"</em> Learn while you document. This builds your technical knowledge every single day.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">12:30 PM</div>
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-title">Mid-day sales check-in</div>
+          <p>Quick call or WhatsApp with the sales manager. Ask: any meetings done this morning? New leads? Note it down. This mid-day check means you catch updates without waiting until 5 PM and you stay ahead of the report.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">1:00 PM</div>
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-title">Afternoon observation + documentation</div>
+          <p>Continue on-site. Keep live notes in a notebook or your phone. For every device configured — get a screenshot. For every cable run — note the port number and destination. Build the live document as you go. Do not rely on memory at the end of the day.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">4:30 PM</div>
+        <div class="tl-dot tl-dot-amber"></div>
+        <div class="tl-card tl-card-amber">
+          <div class="tl-title">Collect end-of-day updates</div>
+          <p>Receive the daily log from both people. Engineer sends: tasks done + photos. Sales manager sends: calls + pipeline update. If anyone has not sent by 4:30 PM — follow up <strong>immediately</strong>. Do not let missing data slide. It looks bad in your report and sets a weak standard.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">5:00 PM</div>
+        <div class="tl-dot tl-dot-blue"></div>
+        <div class="tl-card tl-card-blue">
+          <div class="tl-title">Write and send the daily report</div>
+          <p>Fill in the daily template. Add your own observations and quality check. Attach 2–3 photos of today's work. Keep it professional and factual. Send to the CEO by 6 PM at the latest — every single working day, without exception.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">Evening</div>
+        <div class="tl-dot tl-dot-purple"></div>
+        <div class="tl-card">
+          <div class="tl-title">Build your personal knowledge log</div>
+          <p>Write what YOU learned today. Keep a private notebook: what new thing did you learn from the engineer? What command did they run? What sales technique did the manager apply? This is what turns probation into a permanent role — demonstrable, compounding growth.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── TAB: PROBATION TIPS ─── -->
+  <section id="tab-probation" class="tab-section">
+    <div class="hero-line">
+      <span class="tag">Probation strategy</span>
+      <h1>Turn 90 days into a permanent contract</h1>
+      <p class="hero-sub">Reliability converts a probation. Brilliance is a bonus. Here is the honest plan.</p>
+    </div>
+
+    <div class="tips-grid">
+
+      <div class="tip-card">
+        <div class="tip-num">01</div>
+        <h3>Always send the report — even when news is bad</h3>
+        <p>The CEO does not expect everything to be perfect. They expect YOU to be reliable. If the engineer was late — report it. If a task slipped — report it with a reason. A CEO trusts someone who tells the truth, not someone who hides problems.</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-num">02</div>
+        <h3>Add one recommendation every day</h3>
+        <p>At the end of each report write one forward-looking suggestion: <em>"I suggest ordering CAT6 termination tools by Thursday or it will delay cabling next week."</em> CEOs promote people who think ahead — not just people who report what already happened.</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-num">03</div>
+        <h3>Build a shared Google Sheets project tracker</h3>
+        <p>Create a live tracker: rows = tasks, columns = assigned person, status, due date, completed date. Share the link with the CEO on Day 1. Now they can check any time — and they will see you are organized before you even send your first report.</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-num">04</div>
+        <h3>Document everything with photos</h3>
+        <p>Create a Google Drive folder called "Project Progress Photos." Add 5 photos every day of physical work done. At the end of month 1 send the CEO a before/after comparison. Visual proof of progress is something words alone cannot replace.</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-num">05</div>
+        <h3>Learn one technical thing per day from the engineer</h3>
+        <p>Ask the engineer to explain one concept each day — VLAN configuration, how PoE works, how to read a patch panel. Write it in your private log. After 30 days you know 30 new technical topics. This makes your questions sharper and earns genuine respect.</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-num">06</div>
+        <h3>Ask the CEO for feedback at end of week 2</h3>
+        <p>Send a short message: <em>"Is the format and detail of my daily reports working well for you? Anything you would like me to add or change?"</em> This shows maturity. Most people in probation never ask this. It will stand out immediately.</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-num">07</div>
+        <h3>Never skip a report — not even one day</h3>
+        <p>Even on a quiet day send a short update: <em>"Today was primarily planning and coordination. No major issues. On track for tomorrow."</em> One missed report creates doubt. Consistency over 60–90 days is what converts a probation period into a contract.</p>
+      </div>
+
+      <div class="tip-card tip-card-featured">
+        <div class="tip-num tip-num-gold">08</div>
+        <h3>End of month: present a meeting — not just a report</h3>
+        <p>At the end of month 1, ask the CEO for 20 minutes to walk them through the monthly report in person. Show the before/after photos. Talk through the sales pipeline. Explain what next month looks like. This one meeting does more for your permanent position than 30 days of emails alone.</p>
+      </div>
+
+    </div>
+
+    <div class="phase-section">
+      <h2 class="phase-heading">Your 30 · 60 · 90 day game plan</h2>
+      <div class="phases">
+        <div class="phase phase-1">
+          <div class="phase-label">Day 1 – 30</div>
+          <div class="phase-title">Establish</div>
+          <ul>
+            <li>Set up reporting routine</li>
+            <li>Learn the technical work</li>
+            <li>Build the Google Sheets tracker</li>
+            <li>Be 100% reliable above all else</li>
+          </ul>
+        </div>
+        <div class="phase phase-2">
+          <div class="phase-label">Day 31 – 60</div>
+          <div class="phase-title">Add value</div>
+          <ul>
+            <li>Start adding risk flags + recommendations</li>
+            <li>Present month 1 report in a meeting</li>
+            <li>Ask CEO for feedback on your format</li>
+            <li>Begin tracking patterns and trends</li>
+          </ul>
+        </div>
+        <div class="phase phase-3">
+          <div class="phase-label">Day 61 – 90</div>
+          <div class="phase-title">Prove leadership</div>
+          <ul>
+            <li>Propose one improvement idea</li>
+            <li>Suggest a better process or cost saving</li>
+            <li>Show before/after progress comparison</li>
+            <li>CEO should feel they cannot work without you</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>IT Manager Command Center · Built for probation success · Keep sending that daily report.</p>
+</footer>
+
+<div id="toast" class="toast">Template copied to clipboard</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
