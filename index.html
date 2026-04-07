@@ -1,533 +1,1011 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IT Manager Command Center</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Manager Oversight Framework - Complete Guide</title>
+    <meta name="description" content="Comprehensive framework for IT Managers to oversee external contractors, create reports, and succeed in probation period">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1F4E78;
+            --accent: #2E75B5;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Navigation */
+        nav {
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav li {
+            margin: 0.5rem 1rem;
+        }
+        
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            margin: 0.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            font-weight: 600;
+        }
+        
+        .btn:hover {
+            background: var(--accent);
+        }
+        
+        .btn-success {
+            background: var(--success);
+        }
+        
+        .btn-warning {
+            background: var(--warning);
+            color: #333;
+        }
+        
+        /* Section */
+        section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent);
+        }
+        
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+        
+        .timeline-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Checklist */
+        .checklist {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .checklist h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .checklist label {
+            display: block;
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .checklist label:hover {
+            background: white;
+        }
+        
+        .checklist input[type="checkbox"] {
+            margin-right: 0.5rem;
+            transform: scale(1.2);
+        }
+        
+        /* Alert boxes */
+        .alert {
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border-left: 4px solid;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            border-color: var(--success);
+            color: #155724;
+        }
+        
+        .alert-warning {
+            background: #fff3cd;
+            border-color: var(--warning);
+            color: #856404;
+        }
+        
+        .alert-danger {
+            background: #f8d7da;
+            border-color: var(--danger);
+            color: #721c24;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Code blocks */
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+        }
+        
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: var(--primary);
+            color: white;
+        }
+        
+        tr:hover {
+            background: var(--light);
+        }
+    </style>
 </head>
 <body>
-
-<nav class="topbar">
-  <div class="topbar-inner">
-    <div class="logo">
-      <span class="logo-icon">◈</span>
-      <span>IT Command Center</span>
-    </div>
-    <div class="nav-tabs">
-      <button class="nav-tab active" data-tab="people">The 3 People</button>
-      <button class="nav-tab" data-tab="collect">What to Collect</button>
-      <button class="nav-tab" data-tab="reports">Report Templates</button>
-      <button class="nav-tab" data-tab="routine">Daily Routine</button>
-      <button class="nav-tab" data-tab="probation">Probation Tips</button>
-    </div>
-    <div class="menu-btn" id="menuBtn">☰</div>
-  </div>
-</nav>
-
-<div class="mobile-nav" id="mobileNav">
-  <button class="nav-tab active" data-tab="people">The 3 People</button>
-  <button class="nav-tab" data-tab="collect">What to Collect</button>
-  <button class="nav-tab" data-tab="reports">Report Templates</button>
-  <button class="nav-tab" data-tab="routine">Daily Routine</button>
-  <button class="nav-tab" data-tab="probation">Probation Tips</button>
-</div>
-
-<main class="main">
-
-  <!-- ─── TAB: THE 3 PEOPLE ─── -->
-  <section id="tab-people" class="tab-section active">
-    <div class="hero-line">
-      <span class="tag">Your team</span>
-      <h1>Know each person's role clearly <em>first</em></h1>
-      <p class="hero-sub">Before monitoring anyone, define what success looks like. Then you know what to measure.</p>
-    </div>
-
-    <div class="role-grid">
-
-      <div class="role-card card-blue">
-        <div class="role-header">
-          <span class="role-abbr">NE</span>
-          <div>
-            <div class="role-name">Networking Engineer</div>
-            <div class="role-type">External contractor</div>
-          </div>
-        </div>
-        <p class="role-desc">Responsible for physical + logical network build — cabling, switches, VLANs, firewalls.</p>
-        <ul class="role-list">
-          <li>What tasks were completed today?</li>
-          <li>Equipment installed, tested, signed off?</li>
-          <li>Issues found — and how resolved?</li>
-          <li>Plan for tomorrow?</li>
-          <li>Any scope creep from agreed plan?</li>
-          <li>Safety rules followed on site?</li>
+    <header>
+        <h1>📊 IT Manager Oversight Framework</h1>
+        <p>Complete System for Managing External Contractors & Succeeding in Probation</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#quick-start">Quick Start</a></li>
+            <li><a href="#templates">Templates</a></li>
+            <li><a href="#daily-routine">Daily Routine</a></li>
+            <li><a href="#probation">Probation Tips</a></li>
+            <li><a href="#downloads">Downloads</a></li>
         </ul>
-        <div class="role-method">
-          <span class="method-icon">👁</span>
-          Observe on-site · Request daily task sheet by 5 PM
-        </div>
-      </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Hero Section -->
+        <section id="overview">
+            <h2>🎯 What Is This Framework?</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                A comprehensive system designed for IT Managers who need to oversee external contractors 
+                (Networking Engineers & Sales Managers), create professional daily/weekly/monthly reports, 
+                and successfully complete their probation period to secure a permanent position.
+            </p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>🎓 For Whom</h3>
+                    <ul>
+                        <li>New IT Managers in probation</li>
+                        <li>Managers overseeing external teams</li>
+                        <li>Anyone reporting to CEO/executives</li>
+                        <li>Project coordinators</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>✅ What You Get</h3>
+                    <ul>
+                        <li>Daily/weekly/monthly report templates</li>
+                        <li>Tracking spreadsheets</li>
+                        <li>Checklists and forms</li>
+                        <li>Filled examples</li>
+                        <li>30-60-90 day plan</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>🚀 Outcomes</h3>
+                    <ul>
+                        <li>Professional CEO reports</li>
+                        <li>Complete project visibility</li>
+                        <li>Knowledge transfer documented</li>
+                        <li>Probation period success</li>
+                        <li>Permanent position secured</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- The 3 People -->
+        <section>
+            <h2>👥 The 3 People in Your System</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>🔧 Networking Engineer (NE)</h3>
+                    <p><strong>External contractor</strong> - Building network infrastructure</p>
+                    <h4 style="margin-top: 1rem;">Collect Daily:</h4>
+                    <ul style="font-size: 0.9rem;">
+                        <li>Task list (planned vs actual)</li>
+                        <li>Photos of equipment installed</li>
+                        <li>Configuration screenshots</li>
+                        <li>Cable labeling docs</li>
+                        <li>Issues & resolutions</li>
+                        <li>Materials used</li>
+                        <li>Hours worked</li>
+                        <li>Tomorrow's plan</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>💼 Sales Manager (SM)</h3>
+                    <p><strong>External contractor</strong> - Client acquisition & pipeline</p>
+                    <h4 style="margin-top: 1rem;">Collect Daily:</h4>
+                    <ul style="font-size: 0.9rem;">
+                        <li>Call log (count + contacts)</li>
+                        <li>Meeting notes</li>
+                        <li>Proposals sent (value)</li>
+                        <li>Follow-up status</li>
+                        <li>Deals won/lost</li>
+                        <li>Pipeline total value</li>
+                        <li>CRM screenshots</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>⭐ You - IT Manager</h3>
+                    <p><strong>Internal</strong> - Observing, documenting, reporting</p>
+                    <h4 style="margin-top: 1rem;">Your Job:</h4>
+                    <ul style="font-size: 0.9rem;">
+                        <li>Document every step they take</li>
+                        <li>Photo/screenshot evidence</li>
+                        <li>Quality checks vs scope</li>
+                        <li>Risk identification</li>
+                        <li>Daily CEO reports</li>
+                        <li>Weekly summaries</li>
+                        <li>Monthly presentations</li>
+                        <li>Build technical knowledge</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Quick Start -->
+        <section id="quick-start">
+            <h2>🚀 Quick Start Guide</h2>
+            
+            <div class="alert alert-success">
+                <strong>⏱️ Get Running in 1 Hour:</strong> Follow these 5 steps to set up your entire system today.
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Step 1: Download Templates (5 minutes)</h4>
+                    <p>Download the ZIP file containing all templates, spreadsheets, and checklists. Extract to a folder on your computer.</p>
+                    <a href="#downloads" class="btn btn-success">Go to Downloads</a>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Step 2: Set Up Google Drive (10 minutes)</h4>
+                    <p>Create a shared folder structure:</p>
+                    <pre>Project Oversight/
+├── Daily Reports/
+├── Weekly Reports/
+├── Monthly Reports/
+├── Photos & Screenshots/
+├── Documents/
+└── Tracking Sheets/</pre>
+                    <p>Share with CEO (view-only) and contractors (edit access where needed)</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Step 3: Set Up Project Tracker (15 minutes)</h4>
+                    <p>Open <code>project-tracker-template.xlsx</code> and customize:</p>
+                    <ul>
+                        <li>Add your project tasks</li>
+                        <li>Assign to NE or SM</li>
+                        <li>Set due dates</li>
+                        <li>Share link with CEO</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Step 4: Send Day 1 Email (10 minutes)</h4>
+                    <p>Send requirements email to both contractors:</p>
+                    <pre>Subject: Daily Reporting Requirements
 
-      <div class="role-card card-green">
-        <div class="role-header">
-          <span class="role-abbr">SM</span>
-          <div>
-            <div class="role-name">Sales Manager</div>
-            <div class="role-type">External contractor</div>
-          </div>
-        </div>
-        <p class="role-desc">Responsible for client acquisition, deal pipeline, proposals, and revenue generation.</p>
-        <ul class="role-list">
-          <li>How many calls or meetings today?</li>
-          <li>New leads added to pipeline?</li>
-          <li>Proposals sent — client name, value?</li>
-          <li>Follow-ups on existing leads?</li>
-          <li>Deals closed or lost today?</li>
-          <li>Current total pipeline value?</li>
-        </ul>
-        <div class="role-method">
-          <span class="method-icon">📋</span>
-          Request call log + CRM screenshot + meeting notes
-        </div>
-      </div>
+Dear [Name],
 
-      <div class="role-card card-amber">
-        <div class="role-header">
-          <span class="role-abbr">IT</span>
-          <div>
-            <div class="role-name">You — IT Manager</div>
-            <div class="role-type">Internal · observer + reporter</div>
-          </div>
-        </div>
-        <p class="role-desc">Your job = give the CEO full visibility. You are their eyes and ears on the ground.</p>
-        <ul class="role-list">
-          <li>Document every step both people do</li>
-          <li>Take photos of all physical work</li>
-          <li>Screenshot all configurations</li>
-          <li>Cross-check against agreed scope</li>
-          <li>Note risks, delays, quality issues</li>
-          <li>Compile daily + weekly + monthly reports</li>
-        </ul>
-        <div class="role-method">
-          <span class="method-icon">📊</span>
-          Your output = CEO confidence in the project
-        </div>
-      </div>
+As IT Manager, I'll be coordinating all external team activities.
 
+Required daily by 5:00 PM:
+1. Completed daily log (template attached)
+2. Photo/screenshot documentation
+3. Materials used
+4. Issues encountered
+5. Tomorrow's plan
+
+Daily standup: 8:00 AM starting tomorrow
+
+Please confirm understanding.
+
+Best regards,
+[Your Name]</pre>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Step 5: Complete Day 1 Checklist (20 minutes)</h4>
+                    <div class="checklist">
+                        <h4>Day 1 Checklist:</h4>
+                        <label><input type="checkbox"> Meet both contractors in person</label>
+                        <label><input type="checkbox"> Collect their scope of work documents</label>
+                        <label><input type="checkbox"> Set up shared folder and tracking sheet</label>
+                        <label><input type="checkbox"> Send requirements email</label>
+                        <label><input type="checkbox"> Schedule daily 8 AM standup</label>
+                        <label><input type="checkbox"> Send first daily report to CEO (even if brief)</label>
+                        <label><input type="checkbox"> Create WhatsApp group with contractors</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Daily Routine -->
+        <section id="daily-routine">
+            <h2>⏰ Your Daily Routine</h2>
+            
+            <div class="alert alert-warning">
+                <strong>⚡ Critical Success Factor:</strong> Follow this routine every single day without exception for 90 days.
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Activity</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>8:00 AM</strong></td>
+                        <td>
+                            <strong>Morning Kickoff</strong><br>
+                            Brief both contractors. Ask: "What's your plan for today?" Write it down.
+                        </td>
+                        <td>15 min</td>
+                    </tr>
+                    <tr>
+                        <td><strong>9:00 AM - 12:00 PM</strong></td>
+                        <td>
+                            <strong>Morning Observation - On-Site with NE</strong><br>
+                            Watch every step. Take photos. Ask "why" for every decision. Document configurations.
+                        </td>
+                        <td>3 hours</td>
+                    </tr>
+                    <tr>
+                        <td><strong>12:30 PM</strong></td>
+                        <td>
+                            <strong>Sales Check-In</strong><br>
+                            Call or message SM. Ask: "Any meetings this morning? New leads?" Note it.
+                        </td>
+                        <td>10 min</td>
+                    </tr>
+                    <tr>
+                        <td><strong>1:00 PM - 4:00 PM</strong></td>
+                        <td>
+                            <strong>Afternoon Documentation</strong><br>
+                            Continue on-site. For every device configured, get screenshot. For every cable, note port.
+                        </td>
+                        <td>3 hours</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4:30 PM</strong></td>
+                        <td>
+                            <strong>Collect End-of-Day Updates</strong><br>
+                            NE sends: tasks + photos. SM sends: calls + pipeline. Follow up if missing.
+                        </td>
+                        <td>15 min</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5:00 PM - 5:45 PM</strong></td>
+                        <td>
+                            <strong>Write Daily Report</strong><br>
+                            Fill template. Add your observations. Attach 2-3 photos. Send to CEO by 6 PM.
+                        </td>
+                        <td>45 min</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Evening</strong></td>
+                        <td>
+                            <strong>Personal Knowledge Log</strong><br>
+                            Write what YOU learned today. New command? Sales technique? Document it privately.
+                        </td>
+                        <td>15 min</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <!-- Templates -->
+        <section id="templates">
+            <h2>📝 Available Templates</h2>
+            
+            <h3>Report Templates</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Daily Report</h3>
+                    <p>Send to CEO every evening by 6 PM</p>
+                    <ul style="font-size: 0.9rem;">
+                        <li>Today's summary</li>
+                        <li>NE progress update</li>
+                        <li>SM activities & results</li>
+                        <li>Your observations</li>
+                        <li>Tomorrow's plan</li>
+                        <li>Concerns/risks</li>
+                    </ul>
+                    <a href="templates/reports/daily-report-template.md" class="btn">View Template</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Weekly Report</h3>
+                    <p>Send every Sunday morning</p>
+                    <ul style="font-size: 0.9rem;">
+                        <li>Executive summary</li>
+                        <li>NE task completion %</li>
+                        <li>SM sales metrics</li>
+                        <li>Knowledge transferred</li>
+                        <li>Budget tracking</li>
+                        <li>Next week plan</li>
+                    </ul>
+                    <a href="templates/reports/weekly-report-template.md" class="btn">View Template</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Monthly Report</h3>
+                    <p>Send on 1st + present in person</p>
+                    <ul style="font-size: 0.9rem;">
+                        <li>Executive summary</li>
+                        <li>Project dashboard</li>
+                        <li>Detailed achievements</li>
+                        <li>Cost analysis</li>
+                        <li>Risk register</li>
+                        <li>Photo evidence</li>
+                        <li>Recommendations</li>
+                    </ul>
+                    <a href="templates/reports/monthly-report-template.md" class="btn">View Template</a>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 2rem;">Tracking Sheets</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>NE Daily Log</h3>
+                    <p>Networking Engineer fills this daily</p>
+                    <a href="templates/tracking/networking-engineer-daily-log.md" class="btn">Download</a>
+                </div>
+                
+                <div class="card">
+                    <h3>SM Daily Log</h3>
+                    <p>Sales Manager fills this daily</p>
+                    <a href="templates/tracking/sales-manager-daily-log.md" class="btn">Download</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Project Tracker</h3>
+                    <p>Master sheet - share with CEO</p>
+                    <a href="spreadsheets/project-tracker-template.xlsx" class="btn">Download XLSX</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Probation Tips -->
+        <section id="probation">
+            <h2>🎯 Probation Period Success Tips</h2>
+            
+            <div class="alert alert-success">
+                <strong>🏆 Goal:</strong> Make the CEO feel they can see everything without being on-site. Do this consistently for 90 days = permanent position.
+            </div>
+            
+            <h3>The 8 Rules to Get Permanent</h3>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>1. Always Send Report</h3>
+                    <p>Even if news is bad. Even if day was quiet. CEO trusts truth, not perfection.</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                        <strong>Example:</strong> "Today was primarily planning. No major issues. On track for tomorrow."
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>2. Add Recommendation Daily</h3>
+                    <p>One suggestion shows leadership thinking ahead.</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                        <strong>Example:</strong> "Suggest ordering CAT6 tools by Thursday to avoid cabling delay."
+                    </p>
+                </div>
+                
+                <div class="card">
+                    <h3>3. Build Live Tracker</h3>
+                    <p>Google Sheet shared with CEO. Shows you're organized. Update every morning.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>4. Document with Photos</h3>
+                    <p>5 photos daily. Month-end: send before/after comparison. Visual proof beats words.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>5. Learn One Thing Daily</h3>
+                    <p>Ask NE to explain one topic. After 30 days = 30 new skills documented.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>6. Ask for Feedback (Week 2)</h3>
+                    <p>"Is my report format working? Anything to add/change?" Shows maturity.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>7. Never Skip a Report</h3>
+                    <p>Not even one day. Consistency over 90 days converts probation to permanent.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>8. Present Monthly Summary</h3>
+                    <p>Request 20-min meeting to walk CEO through month-end report with photos. This ONE meeting > 30 emails.</p>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 2rem;">30-60-90 Day Game Plan</h3>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Days 1-30: Establish Foundation</h4>
+                    <ul>
+                        <li>Set up reporting routine</li>
+                        <li>Learn the technical work</li>
+                        <li>Build tracking systems</li>
+                        <li>Be 100% reliable</li>
+                    </ul>
+                    <p style="margin-top: 0.5rem; color: #666;"><strong>Goal:</strong> CEO sees consistency</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Days 31-60: Add Value</h4>
+                    <ul>
+                        <li>Start flagging risks proactively</li>
+                        <li>Present Month 1 report in person</li>
+                        <li>Ask CEO for feedback</li>
+                        <li>Improve based on feedback</li>
+                    </ul>
+                    <p style="margin-top: 0.5rem; color: #666;"><strong>Goal:</strong> CEO sees value beyond reporting</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h4>Days 61-90: Prove Indispensable</h4>
+                    <ul>
+                        <li>Propose one improvement idea</li>
+                        <li>Show cost savings identified</li>
+                        <li>Demonstrate technical growth</li>
+                        <li>CEO can't imagine losing your visibility</li>
+                    </ul>
+                    <p style="margin-top: 0.5rem; color: #666;"><strong>Goal:</strong> CEO thinks "I need this person permanently"</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Downloads -->
+        <section id="downloads">
+            <h2>📥 Downloads</h2>
+            
+            <div class="alert alert-success">
+                <strong>📦 Complete Package:</strong> Everything you need in one ZIP file
+            </div>
+            
+            <div style="text-align: center; margin: 2rem 0;">
+                <a href="https://github.com/yourusername/it-manager-oversight/archive/refs/heads/main.zip" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">
+                    ⬇️ Download Complete ZIP (All Templates + Guides)
+                </a>
+            </div>
+            
+            <h3>Individual Downloads</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>File</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Daily Report Template</td>
+                        <td>DOCX</td>
+                        <td>Send to CEO every evening</td>
+                        <td><a href="templates/reports/daily-report-template.docx" class="btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>Weekly Report Template</td>
+                        <td>DOCX</td>
+                        <td>Send every Sunday</td>
+                        <td><a href="templates/reports/weekly-report-template.docx" class="btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Report Template</td>
+                        <td>DOCX</td>
+                        <td>Present in person monthly</td>
+                        <td><a href="templates/reports/monthly-report-template.docx" class="btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>Project Tracker</td>
+                        <td>XLSX</td>
+                        <td>Master tracking sheet</td>
+                        <td><a href="spreadsheets/project-tracker-template.xlsx" class="btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>NE Daily Log</td>
+                        <td>DOCX</td>
+                        <td>For networking engineer</td>
+                        <td><a href="templates/tracking/networking-engineer-daily-log.docx" class="btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>SM Daily Log</td>
+                        <td>DOCX</td>
+                        <td>For sales manager</td>
+                        <td><a href="templates/tracking/sales-manager-daily-log.docx" class="btn">Download</a></td>
+                    </tr>
+                    <tr>
+                        <td>Day 1 Checklist</td>
+                        <td>PDF</td>
+                        <td>First day setup guide</td>
+                        <td><a href="checklists/setup-checklist-day1.pdf" class="btn">Download</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3 style="margin-top: 2rem;">What's in the ZIP?</h3>
+            <pre>it-manager-oversight-main/
+├── docs/               # Complete guides and documentation
+├── templates/          # All report and tracking templates
+├── spreadsheets/       # Excel trackers and dashboards
+├── checklists/         # Daily, weekly, monthly checklists
+├── examples/           # Filled examples of every template
+├── scripts/            # Report generator tool
+└── README.md           # Quick start guide</pre>
+        </section>
+        
+        <!-- FAQ -->
+        <section>
+            <h2>❓ Frequently Asked Questions</h2>
+            
+            <details style="margin: 1rem 0; padding: 1rem; background: var(--light); border-radius: 5px;">
+                <summary style="font-weight: bold; cursor: pointer;">What if the contractors don't submit their daily logs on time?</summary>
+                <p style="margin-top: 1rem;">Follow up immediately at 4:30 PM. Send a polite reminder: "Hi [Name], I need your daily log by 5 PM to include in tonight's CEO report. Can you send in the next 15 minutes?" Never let missing data slide. If it continues, mention it in your CEO report: "Note: Daily log was delayed by 2 hours, affecting report timeliness."</p>
+            </details>
+            
+            <details style="margin: 1rem 0; padding: 1rem; background: var(--light); border-radius: 5px;">
+                <summary style="font-weight: bold; cursor: pointer;">What if I don't understand the technical work the networking engineer is doing?</summary>
+                <p style="margin-top: 1rem;">Ask them to explain! Say: "I need to document this for the CEO. Can you explain in simple terms what this configuration does and why it's important?" Take notes. Look it up later. Add it to your personal knowledge log. After 30 days of asking one question per day, you'll know 30 technical topics.</p>
+            </details>
+            
+            <details style="margin: 1rem 0; padding: 1rem; background: var(--light); border-radius: 5px;">
+                <summary style="font-weight: bold; cursor: pointer;">How detailed should my daily report be?</summary>
+                <p style="margin-top: 1rem;">Keep it to 1 page. Be specific but concise. Instead of "networking work done today," write "Configured 12 ports on Switch-01, labeled cables A1-A12, tested connectivity to Server Room." Include 2-3 photos. Add one sentence on your quality check: "Work matches project plan, no issues noted."</p>
+            </details>
+            
+            <details style="margin: 1rem 0; padding: 1rem; background: var(--light); border-radius: 5px;">
+                <summary style="font-weight: bold; cursor: pointer;">What if something goes wrong on site?</summary>
+                <p style="margin-top: 1rem;">Report it immediately, not at 6 PM. Call or message CEO right away: "FYI: Issue found with firewall configuration causing network outage. Engineer is resolving now. Will update in 30 minutes." Then include full details in evening report with: Issue → Impact → Resolution → Prevention. CEOs appreciate immediate bad news, not delayed bad news.</p>
+            </details>
+            
+            <details style="margin: 1rem 0; padding: 1rem; background: var(--light); border-radius: 5px;">
+                <summary style="font-weight: bold; cursor: pointer;">Should I report if a contractor is underperforming?</summary>
+                <p style="margin-top: 1rem;">Yes, but factually. Don't say "Engineer is lazy." Say: "Planned: 8 tasks. Completed: 3 tasks. Reason cited: waiting for equipment delivery. Recommendation: Confirm equipment arrival time to avoid further delays tomorrow." Let facts speak. Your job is visibility, not judgment.</p>
+            </details>
+            
+            <details style="margin: 1rem 0; padding: 1rem; background: var(--light); border-radius: 5px;">
+                <summary style="font-weight: bold; cursor: pointer;">How do I prepare for the month-end presentation to CEO?</summary>
+                <p style="margin-top: 1rem;">1) Print monthly report. 2) Prepare 10 before/after photos showing visible progress. 3) Create 3-5 PowerPoint slides: Summary → Network Progress → Sales Results → Risks → Next Month Plan. 4) Practice 15-minute presentation. 5) Be ready to answer: "What did we get for our money this month?" with specific deliverables.</p>
+            </details>
+        </section>
+        
+        <!-- Tools -->
+        <section>
+            <h2>🛠️ Recommended Tools</h2>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Free Tools (Start Here)</h3>
+                    <ul>
+                        <li><strong>WhatsApp:</strong> Quick daily updates group</li>
+                        <li><strong>Google Sheets:</strong> Task tracking & pipeline</li>
+                        <li><strong>Google Drive:</strong> Photo & document storage</li>
+                        <li><strong>Google Forms:</strong> Daily report forms</li>
+                        <li><strong>Snipping Tool:</strong> Screenshots</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>If Budget Available</h3>
+                    <ul>
+                        <li><strong>Microsoft 365:</strong> Full office suite</li>
+                        <li><strong>Trello/Asana:</strong> Visual task boards</li>
+                        <li><strong>Monday.com:</strong> Project dashboards</li>
+                        <li><strong>Notion:</strong> All-in-one workspace</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Final CTA -->
+        <section style="text-align: center; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: white;">
+            <h2 style="color: white; border: none;">🎯 Ready to Start?</h2>
+            <p style="font-size: 1.2rem; margin: 1rem 0;">Download everything, follow Day 1 checklist, send your first report tonight.</p>
+            <a href="https://github.com/yourusername/it-manager-oversight/archive/refs/heads/main.zip" class="btn btn-success" style="font-size: 1.2rem; padding: 1rem 2rem; margin: 1rem;">
+                ⬇️ Download Complete ZIP
+            </a>
+            <p style="margin-top: 2rem; opacity: 0.9;">⭐ Star this repo on GitHub if it helps you succeed!</p>
+        </section>
     </div>
-
-    <div class="insight-bar">
-      <span class="insight-icon">◈</span>
-      <strong>Key insight:</strong> Your real job is not just IT management — it is making the CEO feel they can see everything without being on site. Every report is proof of that.
-    </div>
-  </section>
-
-  <!-- ─── TAB: WHAT TO COLLECT ─── -->
-  <section id="tab-collect" class="tab-section">
-    <div class="hero-line">
-      <span class="tag">Data collection</span>
-      <h1>What to collect — every single day</h1>
-      <p class="hero-sub">Both external people must send their update to you by 5 PM. No exceptions.</p>
-    </div>
-
-    <div class="collect-grid">
-      <div class="collect-block">
-        <div class="collect-header ch-blue">
-          <span class="ch-abbr">NE</span>
-          <span>From the Networking Engineer</span>
-        </div>
-        <ul class="collect-list">
-          <li><span class="ci ci-blue">01</span><div><strong>Written task list</strong><br>Planned vs actually done — every item</div></li>
-          <li><span class="ci ci-blue">02</span><div><strong>Photo evidence</strong><br>Cables, switches, racks, cameras installed</div></li>
-          <li><span class="ci ci-blue">03</span><div><strong>Config screenshots</strong><br>Switch CLI, Cisco GUI, firewall rules</div></li>
-          <li><span class="ci ci-blue">04</span><div><strong>Cable labelling sheet</strong><br>Which port connects to which room/device</div></li>
-          <li><span class="ci ci-blue">05</span><div><strong>Faults found</strong><br>Description + how each was fixed</div></li>
-          <li><span class="ci ci-blue">06</span><div><strong>Materials used</strong><br>Cable lengths, connectors, quantities</div></li>
-          <li><span class="ci ci-blue">07</span><div><strong>Hours on site</strong><br>Arrival time and departure time</div></li>
-          <li><span class="ci ci-blue">08</span><div><strong>Tomorrow's plan</strong><br>What is scheduled for next morning</div></li>
-        </ul>
-      </div>
-
-      <div class="collect-block">
-        <div class="collect-header ch-green">
-          <span class="ch-abbr">SM</span>
-          <span>From the Sales Manager</span>
-        </div>
-        <ul class="collect-list">
-          <li><span class="ci ci-green">01</span><div><strong>Calls made</strong><br>Count + who was contacted today</div></li>
-          <li><span class="ci ci-green">02</span><div><strong>Meetings held</strong><br>Number + which companies attended</div></li>
-          <li><span class="ci ci-green">03</span><div><strong>Proposals sent</strong><br>Client name, value, product/service</div></li>
-          <li><span class="ci ci-green">04</span><div><strong>Follow-up status</strong><br>All open leads — current stage</div></li>
-          <li><span class="ci ci-green">05</span><div><strong>Deals won or lost</strong><br>Reason for loss if applicable</div></li>
-          <li><span class="ci ci-green">06</span><div><strong>Updated pipeline</strong><br>All open deals with values + stages</div></li>
-          <li><span class="ci ci-green">07</span><div><strong>CRM screenshots</strong><br>HubSpot, Zoho, or whichever tool used</div></li>
-          <li><span class="ci ci-green">08</span><div><strong>Client feedback</strong><br>Any complaints or positive responses</div></li>
-        </ul>
-      </div>
-
-      <div class="collect-block collect-you">
-        <div class="collect-header ch-amber">
-          <span class="ch-abbr">IT</span>
-          <span>What YOU observe + add yourself</span>
-        </div>
-        <ul class="collect-list">
-          <li><span class="ci ci-amber">◈</span><div><strong>Your own observation notes</strong><br>What you physically saw on site today</div></li>
-          <li><span class="ci ci-amber">◈</span><div><strong>Quality check</strong><br>Does the work match project drawing/scope?</div></li>
-          <li><span class="ci ci-amber">◈</span><div><strong>Attendance log</strong><br>Exact arrival and departure for each person</div></li>
-          <li><span class="ci ci-amber">◈</span><div><strong>Team issues</strong><br>Any disagreement or concern between members</div></li>
-          <li><span class="ci ci-amber">◈</span><div><strong>Timeline risks</strong><br>Anything that could delay the project</div></li>
-          <li><span class="ci ci-amber">◈</span><div><strong>Your recommendation</strong><br>One clear suggestion for what to do next</div></li>
-        </ul>
-        <div class="you-note">This section is what makes YOUR report valuable. Anyone can collect data. Your own eyes and judgment cannot be replaced.</div>
-      </div>
-    </div>
-
-    <div class="tools-row">
-      <div class="tool-item">
-        <span class="tool-icon">💬</span>
-        <strong>WhatsApp Group</strong>
-        <span>Quick daily updates from both people</span>
-      </div>
-      <div class="tool-item">
-        <span class="tool-icon">📊</span>
-        <strong>Google Sheets</strong>
-        <span>Track tasks and pipeline in one place</span>
-      </div>
-      <div class="tool-item">
-        <span class="tool-icon">📁</span>
-        <strong>Google Drive</strong>
-        <span>Store all photos, screenshots, reports</span>
-      </div>
-      <div class="tool-item">
-        <span class="tool-icon">📝</span>
-        <strong>Google Forms</strong>
-        <span>Daily form each person fills in</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── TAB: REPORT TEMPLATES ─── -->
-  <section id="tab-reports" class="tab-section">
-    <div class="hero-line">
-      <span class="tag">Templates</span>
-      <h1>Three reports — daily, weekly, monthly</h1>
-      <p class="hero-sub">Consistency in format builds CEO trust. Use the same structure every time.</p>
-    </div>
-
-    <div class="report-switcher">
-      <button class="rsw active" data-report="daily">Daily</button>
-      <button class="rsw" data-report="weekly">Weekly</button>
-      <button class="rsw" data-report="monthly">Monthly</button>
-    </div>
-
-    <div id="report-daily" class="report-panel active">
-      <div class="report-meta">
-        <span class="report-freq">Every working day · Send by 6 PM</span>
-        <button class="copy-btn" onclick="copyReport('daily')">Copy template</button>
-      </div>
-      <pre class="report-code" id="text-daily">DAILY PROGRESS REPORT
-Date: [DD/MM/YYYY]
-Prepared by: [Your Name] – IT Manager
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-NETWORKING ENGINEER
-───────────────────
-Planned tasks:    [list from morning kickoff]
-Completed tasks:  [what was actually done]
-Issues found:     [problems + how resolved]
-Tomorrow's plan:  [next steps]
-Attendance:       Arrived [time] | Left [time]
-
-SALES MANAGER
-─────────────
-Calls made:       [number] — Key contacts: [names]
-Meetings held:    [number] — Companies: [names]
-Proposals sent:   [number] — Total value: SAR [amount]
-Deals closed:     [Yes/No — details if yes]
-Pipeline value:   SAR [total open deals]
-
-IT MANAGER OBSERVATIONS
-───────────────────────
-Site visit:       [what I saw on site today]
-Quality check:    [Pass / Flag — details]
-Risks noted:      [any concern or delay risk]
-Recommendation:   [my one suggestion for tomorrow]
-
-Overall status:   [ On Track ]  [ At Risk ]  [ Delayed ]</pre>
-    </div>
-
-    <div id="report-weekly" class="report-panel">
-      <div class="report-meta">
-        <span class="report-freq">Every Sunday · Send before work starts</span>
-        <button class="copy-btn" onclick="copyReport('weekly')">Copy template</button>
-      </div>
-      <pre class="report-code" id="text-weekly">WEEKLY PROGRESS REPORT — Week [#]
-Period: [date] to [date]
-Prepared by: [Your Name]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-SUMMARY
-[2 sentences — what was achieved this week overall]
-
-NETWORKING ENGINEER — Week Summary
-───────────────────────────────────
-Tasks completed:       [full list]
-Tasks pending:         [list + reason for each delay]
-Project % complete:    [e.g. 40%]
-Milestone reached:     [e.g. all cabling done in Block A]
-Issues & resolutions:  [summary of problems this week]
-
-SALES MANAGER — Week Summary
-────────────────────────────
-Total calls:           [number]
-Total meetings:        [number]
-Proposals sent:        [number] — Total value: SAR [amount]
-Deals won:             [number] — Value: SAR [amount]
-Deals lost:            [number] — Reason: [summary]
-Pipeline value:        SAR [total]
-Top 3 leads to watch:  [client names]
-
-IT MANAGER ASSESSMENT
-─────────────────────
-Project health:        [ Green ]  [ Amber ]  [ Red ]
-Team performance:      [honest 2-line assessment]
-Key risk this week:    [main concern]
-CEO action needed:     [what the CEO should know or decide]
-
-NEXT WEEK PLAN
-[Brief plan for both team members next week]</pre>
-    </div>
-
-    <div id="report-monthly" class="report-panel">
-      <div class="report-meta">
-        <span class="report-freq">1st of each month · Present in person if possible</span>
-        <button class="copy-btn" onclick="copyReport('monthly')">Copy template</button>
-      </div>
-      <pre class="report-code" id="text-monthly">MONTHLY EXECUTIVE REPORT — [Month Year]
-Prepared by: [Your Name] – IT Manager
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-1. EXECUTIVE SUMMARY
-[3–4 sentences: what was built, what was sold, key wins]
-
-2. NETWORKING — Monthly Achievements
-─────────────────────────────────────
-Infrastructure live:   [systems now operational]
-Pending items:         [what remains + ETA]
-Quality issues:        [count + severity level]
-Equipment spend:       SAR [amount used this month]
-
-3. SALES — Monthly Performance
-───────────────────────────────
-Revenue generated:     SAR [total]
-Proposals sent:        [count] — Value: SAR [total]
-Conversion rate:       [won ÷ sent = X%]
-New clients acquired:  [count]
-Pipeline next month:   SAR [value entering next period]
-
-4. RISKS & ISSUES LOG
-─────────────────────
-[List unresolved risks with owner name and due date]
-Risk 1: [description] — Owner: [name] — Due: [date]
-Risk 2: [description] — Owner: [name] — Due: [date]
-
-5. IT MANAGER RECOMMENDATIONS
-──────────────────────────────
-1. [Your first recommendation for next month]
-2. [Your second recommendation]
-3. [Your third recommendation]
-
-6. PHOTO EVIDENCE SUMMARY
-──────────────────────────
-[Attach 5–10 best progress photos from the month]
-[Include before/after comparisons where possible]</pre>
-    </div>
-  </section>
-
-  <!-- ─── TAB: DAILY ROUTINE ─── -->
-  <section id="tab-routine" class="tab-section">
-    <div class="hero-line">
-      <span class="tag">Daily routine</span>
-      <h1>Own every hour of your working day</h1>
-      <p class="hero-sub">This schedule is your system. Follow it consistently and the CEO will trust you completely.</p>
-    </div>
-
-    <div class="timeline">
-
-      <div class="tl-item">
-        <div class="tl-time">8:00 AM</div>
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-title">Morning kickoff — 15 minutes</div>
-          <p>Brief both external people. Ask each person: <em>"What is your plan for today?"</em> Write it down immediately — this becomes the Planned column in tonight's report. Set a clear expectation: send me your update by 5 PM.</p>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-time">9:00 AM</div>
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-title">On-site with the networking engineer</div>
-          <p>Watch every step. Take photos. Note what tools they use, what config they apply, what cable goes where. Ask questions — <em>"Why did you do it this way?"</em> Learn while you document. This builds your technical knowledge every single day.</p>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-time">12:30 PM</div>
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-title">Mid-day sales check-in</div>
-          <p>Quick call or WhatsApp with the sales manager. Ask: any meetings done this morning? New leads? Note it down. This mid-day check means you catch updates without waiting until 5 PM and you stay ahead of the report.</p>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-time">1:00 PM</div>
-        <div class="tl-dot"></div>
-        <div class="tl-card">
-          <div class="tl-title">Afternoon observation + documentation</div>
-          <p>Continue on-site. Keep live notes in a notebook or your phone. For every device configured — get a screenshot. For every cable run — note the port number and destination. Build the live document as you go. Do not rely on memory at the end of the day.</p>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-time">4:30 PM</div>
-        <div class="tl-dot tl-dot-amber"></div>
-        <div class="tl-card tl-card-amber">
-          <div class="tl-title">Collect end-of-day updates</div>
-          <p>Receive the daily log from both people. Engineer sends: tasks done + photos. Sales manager sends: calls + pipeline update. If anyone has not sent by 4:30 PM — follow up <strong>immediately</strong>. Do not let missing data slide. It looks bad in your report and sets a weak standard.</p>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-time">5:00 PM</div>
-        <div class="tl-dot tl-dot-blue"></div>
-        <div class="tl-card tl-card-blue">
-          <div class="tl-title">Write and send the daily report</div>
-          <p>Fill in the daily template. Add your own observations and quality check. Attach 2–3 photos of today's work. Keep it professional and factual. Send to the CEO by 6 PM at the latest — every single working day, without exception.</p>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-time">Evening</div>
-        <div class="tl-dot tl-dot-purple"></div>
-        <div class="tl-card">
-          <div class="tl-title">Build your personal knowledge log</div>
-          <p>Write what YOU learned today. Keep a private notebook: what new thing did you learn from the engineer? What command did they run? What sales technique did the manager apply? This is what turns probation into a permanent role — demonstrable, compounding growth.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ─── TAB: PROBATION TIPS ─── -->
-  <section id="tab-probation" class="tab-section">
-    <div class="hero-line">
-      <span class="tag">Probation strategy</span>
-      <h1>Turn 90 days into a permanent contract</h1>
-      <p class="hero-sub">Reliability converts a probation. Brilliance is a bonus. Here is the honest plan.</p>
-    </div>
-
-    <div class="tips-grid">
-
-      <div class="tip-card">
-        <div class="tip-num">01</div>
-        <h3>Always send the report — even when news is bad</h3>
-        <p>The CEO does not expect everything to be perfect. They expect YOU to be reliable. If the engineer was late — report it. If a task slipped — report it with a reason. A CEO trusts someone who tells the truth, not someone who hides problems.</p>
-      </div>
-
-      <div class="tip-card">
-        <div class="tip-num">02</div>
-        <h3>Add one recommendation every day</h3>
-        <p>At the end of each report write one forward-looking suggestion: <em>"I suggest ordering CAT6 termination tools by Thursday or it will delay cabling next week."</em> CEOs promote people who think ahead — not just people who report what already happened.</p>
-      </div>
-
-      <div class="tip-card">
-        <div class="tip-num">03</div>
-        <h3>Build a shared Google Sheets project tracker</h3>
-        <p>Create a live tracker: rows = tasks, columns = assigned person, status, due date, completed date. Share the link with the CEO on Day 1. Now they can check any time — and they will see you are organized before you even send your first report.</p>
-      </div>
-
-      <div class="tip-card">
-        <div class="tip-num">04</div>
-        <h3>Document everything with photos</h3>
-        <p>Create a Google Drive folder called "Project Progress Photos." Add 5 photos every day of physical work done. At the end of month 1 send the CEO a before/after comparison. Visual proof of progress is something words alone cannot replace.</p>
-      </div>
-
-      <div class="tip-card">
-        <div class="tip-num">05</div>
-        <h3>Learn one technical thing per day from the engineer</h3>
-        <p>Ask the engineer to explain one concept each day — VLAN configuration, how PoE works, how to read a patch panel. Write it in your private log. After 30 days you know 30 new technical topics. This makes your questions sharper and earns genuine respect.</p>
-      </div>
-
-      <div class="tip-card">
-        <div class="tip-num">06</div>
-        <h3>Ask the CEO for feedback at end of week 2</h3>
-        <p>Send a short message: <em>"Is the format and detail of my daily reports working well for you? Anything you would like me to add or change?"</em> This shows maturity. Most people in probation never ask this. It will stand out immediately.</p>
-      </div>
-
-      <div class="tip-card">
-        <div class="tip-num">07</div>
-        <h3>Never skip a report — not even one day</h3>
-        <p>Even on a quiet day send a short update: <em>"Today was primarily planning and coordination. No major issues. On track for tomorrow."</em> One missed report creates doubt. Consistency over 60–90 days is what converts a probation period into a contract.</p>
-      </div>
-
-      <div class="tip-card tip-card-featured">
-        <div class="tip-num tip-num-gold">08</div>
-        <h3>End of month: present a meeting — not just a report</h3>
-        <p>At the end of month 1, ask the CEO for 20 minutes to walk them through the monthly report in person. Show the before/after photos. Talk through the sales pipeline. Explain what next month looks like. This one meeting does more for your permanent position than 30 days of emails alone.</p>
-      </div>
-
-    </div>
-
-    <div class="phase-section">
-      <h2 class="phase-heading">Your 30 · 60 · 90 day game plan</h2>
-      <div class="phases">
-        <div class="phase phase-1">
-          <div class="phase-label">Day 1 – 30</div>
-          <div class="phase-title">Establish</div>
-          <ul>
-            <li>Set up reporting routine</li>
-            <li>Learn the technical work</li>
-            <li>Build the Google Sheets tracker</li>
-            <li>Be 100% reliable above all else</li>
-          </ul>
-        </div>
-        <div class="phase phase-2">
-          <div class="phase-label">Day 31 – 60</div>
-          <div class="phase-title">Add value</div>
-          <ul>
-            <li>Start adding risk flags + recommendations</li>
-            <li>Present month 1 report in a meeting</li>
-            <li>Ask CEO for feedback on your format</li>
-            <li>Begin tracking patterns and trends</li>
-          </ul>
-        </div>
-        <div class="phase phase-3">
-          <div class="phase-label">Day 61 – 90</div>
-          <div class="phase-title">Prove leadership</div>
-          <ul>
-            <li>Propose one improvement idea</li>
-            <li>Suggest a better process or cost saving</li>
-            <li>Show before/after progress comparison</li>
-            <li>CEO should feel they cannot work without you</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-</main>
-
-<footer class="footer">
-  <p>IT Manager Command Center · Built for probation success · Keep sending that daily report.</p>
-</footer>
-
-<div id="toast" class="toast">Template copied to clipboard</div>
-
-<script src="js/app.js"></script>
+    
+    <footer>
+        <p><strong>IT Manager Oversight Framework</strong></p>
+        <p>Created for IT Managers managing external contractors</p>
+        <p style="margin-top: 1rem;">Version 1.0 | February 2025</p>
+        <p style="margin-top: 1rem;">
+            <a href="https://github.com/yourusername/it-manager-oversight" style="color: white;">GitHub Repository</a> | 
+            <a href="https://github.com/yourusername/it-manager-oversight/issues" style="color: white;">Report Issue</a> | 
+            <a href="#" style="color: white;">Documentation</a>
+        </p>
+        <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">
+            MIT License - Free to use, modify, and distribute
+        </p>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Save checkbox state to localStorage
+        document.querySelectorAll('.checklist input[type="checkbox"]').forEach(checkbox => {
+            const key = 'checklist_' + checkbox.parentElement.textContent.trim().substring(0, 30);
+            
+            // Load saved state
+            if (localStorage.getItem(key) === 'true') {
+                checkbox.checked = true;
+            }
+            
+            // Save on change
+            checkbox.addEventListener('change', function() {
+                localStorage.setItem(key, this.checked);
+            });
+        });
+        
+        // Add "Back to Top" button
+        const backToTop = document.createElement('button');
+        backToTop.textContent = '↑';
+        backToTop.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        `;
+        document.body.appendChild(backToTop);
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
